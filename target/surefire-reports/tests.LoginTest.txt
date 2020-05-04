@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: tests.LoginTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 22.503 sec <<< FAILURE!
+loginTest(tests.LoginTest)  Time elapsed: 21.091 sec  <<< ERROR!
+net.thucydides.core.webdriver.DriverConfigurationError: Could not instantiate new WebDriver instance of type class org.openqa.selenium.chrome.ChromeDriver (Timed out waiting for driver server to start.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ws-102-61b.local', ip: '192.168.1.145', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '1.8.0_251'
+Driver info: driver.version: ProvideNewDriver). See below for more details.
+	at pages.MainPage.openMainPage(MainPage.java:19)
+	at steps.MainSteps.openMainPage(MainSteps.java:18)
+	at tests.LoginTest.loginTest(LoginTest.java:9)
+
