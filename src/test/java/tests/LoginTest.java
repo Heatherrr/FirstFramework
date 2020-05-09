@@ -1,6 +1,6 @@
 package tests;
 
-import Helper.PropertieesHelper;
+import Helper.PropertiesHelper;
 import org.junit.Test;
 
 // Описываем тест, который будем выполнять:
@@ -15,7 +15,7 @@ public class LoginTest extends SampleTest {
         user.mainPage.fillInEmailAddress("automationstep@gmail.com");
         //TO DO
         user.mainPage.checkText ();
-        user.mainPage.fillInEmailAddressField(PropertieesHelper.INSTANCE.getProperty("email"));
-        user.mainPage.fillInPasswordField(PropertieesHelper.INSTANCE.getProperty("password"));
+        user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
+        user.mainPage.fillInPasswordField(PropertiesHelper.INSTANCE.getProperties("password"));
     }
 }

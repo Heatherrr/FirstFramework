@@ -64,7 +64,7 @@ public class MainPage extends BasePage{
         String text = element(signInButton).getText();
         System.out.println(text);
         Pattern pattern = Pattern.compile("(^Please\\senter\\s)");
-        Matcher matcher = pattern.matcher((CharSequence) text);
+        Matcher matcher = pattern.matcher(text);
 
         if (matcher.find()) {
             System.out.println("Нашел");
