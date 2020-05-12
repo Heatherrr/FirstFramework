@@ -1,5 +1,6 @@
 package pages;
 
+//библиотеки селениума?
 import net.thucydides.core.annotations.DefaultUrl;
 import org.apache.xpath.operations.String;
 import org.openqa.selenium.WebDriver;
@@ -54,13 +55,14 @@ public class MainPage extends BasePage{
         element(signInButton).click();
   }
 
-    //метод, записи в поле емеила почты нашего аккаунта:
+    //метод, записи в поле email почты нашего аккаунта:
     public void fillInEmailAddress (String email) {
         element (emailField).sendKeys(email);
     }
 
     //метод, проверить, есть ли текст "Please enter" в поле
     public void checkText () {
+        //объект - ?
         String text = element(signInButton).getText();
         System.out.println(text);
         Pattern pattern = Pattern.compile("(^Please\\senter\\s)");
@@ -76,7 +78,7 @@ public class MainPage extends BasePage{
     //метод, заполнить поле email
     public void fillInEmailAddressField(String email) {
         WebElement emailAddressField;
-        element(emailAddressField).sendKeys(email);
+        element(emailField).sendKeys(email);
     }
 
     //метод, заполнить поле password
@@ -84,3 +86,13 @@ public class MainPage extends BasePage{
         element (passwordField).sendKeys(password);
     }
 }
+
+
+    //чтобы запершить тест "Логин" осталось только нажать кнопку Sign in
+
+    //    //метод, нажать кнопку Sign in
+//    public void clickOnSignInButton() {
+//        element(signInButton).click();
+//  }
+
+//и сделать так, чтобы нажималась 2-ая на странице кнопка Sign in, а не первая

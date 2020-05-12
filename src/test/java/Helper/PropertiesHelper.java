@@ -28,7 +28,3 @@ public class PropertiesHelper {
     }
 }
 
-    public String getProperties(String password) {
-
-    }
-}
