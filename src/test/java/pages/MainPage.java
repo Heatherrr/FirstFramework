@@ -2,7 +2,6 @@ package pages;
 
 //библиотеки селениума?
 import net.thucydides.core.annotations.DefaultUrl;
-import org.apache.xpath.operations.String;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
