@@ -39,7 +39,7 @@ public class MainPage extends BasePage{
     @FindBy(id = "SubmitLogin")
     private WebElement signInButtonOnLoginPage;
 
-    @FindBy(xpath = "a[title='Women']")
+    @FindBy(css = "a[title='Women']")
     private WebElement womenTab;
 
     @FindBy(css = "a[style='background:#F39C11;']")

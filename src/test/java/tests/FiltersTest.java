@@ -10,8 +10,7 @@ public class FiltersTest extends SampleTest {
         user.mainPage.openMainPage();
         user.mainPage.clickOnSignInButton();
         user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
-        user.mainPage.fillInPasswordField(PropertiesHelper.INSTANCE.getProperties("psssword"));
-        user.mainPage.clickOnSignInButton();
+        user.mainPage.fillInPasswordField(PropertiesHelper.INSTANCE.getProperties("password"));
         user.mainPage.clickOnSubmitLoginButton();
         user.mainPage.clickOnWomenTab();
         user.mainPage.checkOrangeColorOnItems();
