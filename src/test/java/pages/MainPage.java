@@ -1,11 +1,15 @@
 package pages;
 
 //библиотеки селениума?
+
 import net.thucydides.core.annotations.DefaultUrl;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,6 +36,18 @@ public class MainPage extends BasePage{
     @FindBy (id = "passwd")
     private WebElement passwordField;
 
+    @FindBy(id = "SubmitLogin")
+    private WebElement signInButtonOnLoginPage;
+
+    @FindBy(xpath = "a[title='Women']")
+    private WebElement womenTab;
+
+    @FindBy(css = "a[style='background:#F39C11;']")
+    private WebElement orangeBox;
+
+    //локатор, будет вытягивать список товаров, где есть цвета (любые)
+    @FindBy(css = "ul[class='color_to_pick_list clearfix']")
+    private List<WebElement> colorBoxes;
 
     ////
 
@@ -83,6 +99,32 @@ public class MainPage extends BasePage{
     //метод, заполнить поле password
     public void fillInPasswordField(String password) {
         element (passwordField).sendKeys(password);
+    }
+
+    //метод на click по кнопке submit на стр логина
+    public void clickOnSubmitLoginButton () {
+        element(signInButtonOnLoginPage).click();
+    }
+
+    //метод клик на women
+    public void clickOnWomenTab() {
+        element(womenTab).click();
+    }
+
+    //метод возвращает боксы с цветами
+    private List<WebElement> getColorBoxes() {
+        return colorBoxes;
+    }
+
+    //метод проверяем что у нас есть 3 оранжевых цвета (3 продукта), 1 продукт - один оранжевый цвет
+    public void checkOrangeColorsOnItems () {
+        int counter = 0;
+        for (int i = 0; i < getColorBoxes().size(); i++) {
+            if (getColorBoxes().get(i).findElements(By.cssSelector("a[style='background:#F39C11;']")).size() > 1) {
+                counter++;
+            }
+        }
+        Assert.assertEquals(3, counter);
     }
 }
 

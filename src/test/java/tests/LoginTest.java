@@ -12,7 +12,6 @@ public class LoginTest extends SampleTest {
     public void loginTest() {
         user.mainPage.openMainPage();
         user.mainPage.clickOnSignInButton();
-        //user.mainPage.fillInEmailAddress("automationstep@gmail.com");
         //TO DO
         user.mainPage.checkText ();
         user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
