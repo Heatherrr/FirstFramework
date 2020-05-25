@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -48,6 +49,13 @@ public class MainPage extends BasePage{
     //локатор, будет вытягивать список товаров, где есть цвета (любые)
     @FindBy(css = "ul[class='color_to_pick_list clearfix']")
     private List<WebElement> colorBoxes;
+
+    @FindBy (xpath = "\"//*[@id='center_column']/ul/li\"")
+    private  WebElement moveToItem;
+    //"//*[@id='center_column']/ul/li"
+
+    @FindBy (css = "a[title='Add to cart'][data-id-product]")
+    private  List<WebElement> addToCartButtons;
 
     ////
 
@@ -126,6 +134,22 @@ public class MainPage extends BasePage{
         }
         Assert.assertEquals(3, counter);
     }
+
+    private List<WebElements> getAddToCartButtons(){
+        return AddToCartButtons;
+    }
+
+    public void clickOnAddToCartButtonsOnItems(int count) {
+        for (int i = 0; i < count; i++) {
+            withAction().moveToElement(getmoveToItemList().get(i)).perform();
+            getDriver().findElement(By.cssSelector("a[title='Add to cart'][data-id-product = '" + (i+1) + "']")).click();
+            //waitForCondition().until(ExpectedConditions.visibilityOf(addToCartButtons.get(i))).click();
+            //addToCartButtons.get(i).click();
+            element (continueShoppingButton).click();  //ленивая инициализация
+        }
+    }
+
+
 }
 
 
