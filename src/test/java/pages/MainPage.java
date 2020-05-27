@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -50,12 +49,15 @@ public class MainPage extends BasePage{
     @FindBy(css = "ul[class='color_to_pick_list clearfix']")
     private List<WebElement> colorBoxes;
 
-    @FindBy (xpath = "\"//*[@id='center_column']/ul/li\"")
-    private  WebElement moveToItem;
+    @FindBy (xpath = "//*[@id='center_column']/ul/li")
+    private  List<WebElement> moveToItem;
     //"//*[@id='center_column']/ul/li"
 
     @FindBy (css = "a[title='Add to cart'][data-id-product]")
     private  List<WebElement> addToCartButtons;
+
+    @FindBy (xpath = "//*[@id='layer_cart']/div[1]/div[2]/div[4]/span/span")
+    private WebElement continueShoppingButton;
 
     ////
 
@@ -135,13 +137,17 @@ public class MainPage extends BasePage{
         Assert.assertEquals(3, counter);
     }
 
-    private List<WebElements> getAddToCartButtons(){
-        return AddToCartButtons;
+    private List<WebElement> getMoveToItemList () {
+        return moveToItem;
+    }
+
+    private List<WebElement> getAddToCartButtons() {
+        return addToCartButtons;
     }
 
     public void clickOnAddToCartButtonsOnItems(int count) {
         for (int i = 0; i < count; i++) {
-            withAction().moveToElement(getmoveToItemList().get(i)).perform();
+            withAction().moveToElement(getMoveToItemList().get(i)).perform();
             getDriver().findElement(By.cssSelector("a[title='Add to cart'][data-id-product = '" + (i+1) + "']")).click();
             //waitForCondition().until(ExpectedConditions.visibilityOf(addToCartButtons.get(i))).click();
             //addToCartButtons.get(i).click();

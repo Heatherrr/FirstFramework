@@ -1,14 +1,11 @@
 package tests;
 
 import Helper.DataUser;
-import com.gargoylesoftware.htmlunit.javascript.host.fetch.Response;
-import com.jayway.restassured.response.ValidatableResponse;
-import com.jayway.restassured.specification.RequestSpecification;
+import com.jayway.restassured.response.Response;
 import org.junit.Test;
 import org.testng.asserts.SoftAssert;
 
 import static com.jayway.restassured.RestAssured.given;
-import static com.jayway.restassured.response.ValidatableResponse.*;
 
 public class APITests {
 
@@ -29,11 +26,11 @@ public class APITests {
 
     @Test
     public void verifyHTTPResponseHeader() {
-        given() RequestSpecification
-            .when().get(DEFAULT_URL) Response
-            .then().assertThat() ValidatableResponse
-            .header(CONTENT_TYPE, HEADER_APP_JSON) ValidatableResponse
-            .and().statusCode(300);
+        given()
+            .when().get(DEFAULT_URL)
+            .then().assertThat()
+            .header(CONTENT_TYPE, HEADER_APP_JSON)
+            .and().statusCode(200);
     }
 
     @Test
@@ -41,14 +38,14 @@ public class APITests {
         response = (Response) given()
                 .when().get (DEFAULT_URL);
         softAssert.assertEquals(response.body()
-                .jsonPath().getList("id").size(), 101);
+                .jsonPath().getList("id").size(), 100);
         softAssert.assertAll();
     }
 
     @Test
     public void createNewPost () {
         response = given ()
-                .header((CONTENT_TYPE, HEADER_APP_JSON)
+                .header(CONTENT_TYPE, HEADER_APP_JSON)
                 .body(getUser1)
                 .when ().post(DEFAULT_URL);
         softAssert.assertEquals(response.statusCode(), 201);
@@ -63,7 +60,7 @@ public class APITests {
         response = given()
                 .header (CONTENT_TYPE, HEADER_APP_JSON)
                 .body(getUser1)
-                .when().put(DEFAULT_URL/1);
+                .when().put(DEFAULT_URL + "/1");
         softAssert.assertEquals(response.statusCode(), 200);
         softAssert.assertEquals(response.getBody()
                 .jsonPath().getInt("id"), 1);
@@ -77,7 +74,7 @@ public class APITests {
     public void deletePost (){
         response = given()
                 .header(CONTENT_TYPE, HEADER_APP_JSON)
-                .when().delete()(DEFAULT_URL + "1");
+                .when().delete(DEFAULT_URL + "/1");
         softAssert.assertEquals(response.statusCode(), 200);
         softAssert.assertAll();
         response.body().print();
