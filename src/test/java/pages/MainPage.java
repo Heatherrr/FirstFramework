@@ -59,6 +59,13 @@ public class MainPage extends BasePage{
     @FindBy (xpath = "//*[@id='layer_cart']/div[1]/div[2]/div[4]/span/span")
     private WebElement continueShoppingButton;
 
+
+
+    //REGISTRATION TEST
+    @FindBy(css = "button#SubmitCreate")
+    // Указываем веб элемент и его название:
+    private WebElement createAnAccountButton;
+
     ////
 
     //inject the driver into the test, создается автоматом после наследования BasePage:
@@ -155,6 +162,11 @@ public class MainPage extends BasePage{
         }
     }
 
+
+    //REGISTRATION TEST
+    public void clickOnCreateAnAccountButton ()  {
+        element(createAnAccountButton).click();
+    }
 
 }
 
