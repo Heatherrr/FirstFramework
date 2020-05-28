@@ -61,4 +61,8 @@ public class MainSteps extends ScenarioSteps {
     public void clickOnAddToCartButtonsOnItems(int count) {
         onPage.clickOnAddToCartButtonsOnItems(count);
     }
+
+    @Step
+    public void clickOnCreateAnAccountButton() {onPage.clickOnCreateAnAccountButton();
+    }
 }
