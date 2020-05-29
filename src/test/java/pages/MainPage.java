@@ -66,6 +66,7 @@ public class MainPage extends BasePage{
     // Указываем веб элемент и его название:
     private WebElement createAnAccountButton;
 
+
     ////
 
     //inject the driver into the test, создается автоматом после наследования BasePage:
