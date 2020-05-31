@@ -12,7 +12,7 @@ public class FiltersTest extends SampleTest {
         user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
         user.mainPage.fillInPasswordField(PropertiesHelper.INSTANCE.getProperties("password"));
         user.mainPage.clickOnSubmitLoginButton();
-        user.mainPage.clickOnWomenTab();
-        user.mainPage.checkOrangeColorOnItems();
+        user.mainPage.clickOnWomenTab();      //тут мы на другой странице, нормально, что ссылка .mainPage?
+        user.mainPage.checkOrangeColorOnItems();    //тут мы на другой странице, нормально, что ссылка .mainPage?
     }
 }

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class SendAMessageTest extends SampleTest {
 
+
     //Тест-кейс
     //1. Open main page (http://automationpractice.com/index.php)
     //2. Click "Contact Us Button"
@@ -31,7 +32,7 @@ public class SendAMessageTest extends SampleTest {
         user.contactUsPage.checkTextUnderWebmasterField();
         user.contactUsPage.checkIconUnderWebmasterField();
         user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
-        user.contactUsPage.clickOnAttachFileButton();
+        //user.contactUsPage.clickOnAttachFileButton();
         user.contactUsPage.typeTextInMessageField(PropertiesHelper.INSTANCE.getProperties("text")); //в методе сделать ссылку на текст, который будет в PropertiesHelper
         user.contactUsPage.clickOnSendButton();
     }

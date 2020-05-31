@@ -7,7 +7,7 @@ import pages.ContactUsPage;
 
 public class StepsContactUs extends ScenarioSteps {
 
-    private ContactUsPage onContactPage;
+    public ContactUsPage onContactPage;
 
     //ЗАДАНИЕ
 
@@ -22,8 +22,8 @@ public class StepsContactUs extends ScenarioSteps {
 
     //нужен ли тут шаг для метода заполнить email, который на MainPage?
 
-    @Step
-    public void clickOnAttachFileButton() {onContactPage.clickOnAttachFileButton();}
+    //@Step
+    //public void clickOnAttachFileButton() {onContactPage.clickOnAttachFileButton();}
 
     @Step
     public void typeTextInMessageField() {onContactPage.typeTextInMessageField(PropertiesHelper.INSTANCE.getProperties("text"));}

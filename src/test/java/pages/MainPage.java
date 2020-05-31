@@ -67,6 +67,32 @@ public class MainPage extends BasePage{
     private WebElement createAnAccountButton;
 
 
+
+    //BUY AN ITEM TEST
+    @FindBy (css = "a.button ajax_add_to_cart_button btn btn-default")
+    private WebElement addToCartButtonOfAnItem;
+
+    @FindBy (css = "a.btn btn-default button button-medium")
+    private  WebElement proceedToCheckOutButton;
+
+    @FindBy (css= "a.button btn btn-default standard-checkout button-medium")
+    private WebElement proceedToCheckOutButtonOnSummaryPage;
+
+    @FindBy (css= "a.button btn btn-default button-medium")
+    private WebElement proceedToCheckOutButtonOnAddressPage;
+
+    @FindBy (id = "cgv")
+    private WebElement checkBoxIAgree;
+
+    @FindBy (css = "a.button btn btn-default standard-checkout button-medium")
+    private WebElement proceedToCheckOutButtonOnShippingPage;
+
+    @FindBy (css = "a.bankwire")
+    private WebElement payByBankWire;
+
+    @FindBy (css = "a.button btn btn-default button-medium")
+    private WebElement iConfirmMyOrderButton;
+
     ////
 
     //inject the driver into the test, создается автоматом после наследования BasePage:
@@ -149,9 +175,9 @@ public class MainPage extends BasePage{
         return moveToItem;
     }
 
-    private List<WebElement> getAddToCartButtons() {
+    /*private List<WebElement> getAddToCartButtons() {
         return addToCartButtons;
-    }
+    }*/
 
     public void clickOnAddToCartButtonsOnItems(int count) {
         for (int i = 0; i < count; i++) {
@@ -169,14 +195,25 @@ public class MainPage extends BasePage{
         element(createAnAccountButton).click();
     }
 
+
+    //BUY AN ITEM TEST
+    public void clickOnAddToCartButtonOfAnItem () {element(addToCartButtonOfAnItem).click();}
+
+
+
+    public void clickOnProceedToCheckOutButton () {
+        element(proceedToCheckOutButton).click();
+    }
+
+    public void clickOnProceedToCheckOutButtonOnSummaryPage () {(proceedToCheckOutButtonOnSummaryPage).click();}
+
+    public void clickOnProceedToCheckOutButtonOnAddressPage () {(proceedToCheckOutButtonOnAddressPage).click();}
+
+    public void tickTheCheckBoxIAgree () {(checkBoxIAgree).click();}
+
+    public void clickOnProceedToCheckOutButtonOnShippingPage () {(proceedToCheckOutButtonOnShippingPage).click();}
+
+    public void clickOnPayByBankWire () {(payByBankWire).click();}
+
+    public void clickOnIConfirmMyOrderButton () {(iConfirmMyOrderButton).click();}
 }
-
-
-    //чтобы запершить тест "Логин" осталось только нажать кнопку Sign in
-
-    //    //метод, нажать кнопку Sign in
-//    public void clickOnSignInButton() {
-//        element(signInButton).click();
-//  }
-
-//и сделать так, чтобы нажималась 2-ая на странице кнопка Sign in, а не первая

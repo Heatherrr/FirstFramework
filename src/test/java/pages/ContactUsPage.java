@@ -1,9 +1,9 @@
 package pages;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 @DefaultUrl("http://automationpractice.com/index.php?controller=contact")
 
 public class ContactUsPage extends BasePage {
+
 
 
     //ЗАДАНИЕ
@@ -91,10 +92,11 @@ public class ContactUsPage extends BasePage {
     //метод message
     public void typeTextInMessageField(String text) {
         element(messageField).sendKeys(text);
-    }
+    }  //Напечатать текст в поле meassage - это sendKeys?
 
     //метод click send button
     public void clickOnSendButton () {element(sendButton).click();}
+
 }
 
 
