@@ -197,7 +197,7 @@ public class MainPage extends BasePage{
 
 
     //BUY AN ITEM TEST
-    public void clickOnAddToCartButtonOfAnItem () {element(addToCartButtonOfAnItem).click();}
+    //public void clickOnAddToCartButtonOfAnItem () {element(addToCartButtonOfAnItem).click();}
 
 
 
@@ -216,4 +216,5 @@ public class MainPage extends BasePage{
     public void clickOnPayByBankWire () {(payByBankWire).click();}
 
     public void clickOnIConfirmMyOrderButton () {(iConfirmMyOrderButton).click();}
+
 }

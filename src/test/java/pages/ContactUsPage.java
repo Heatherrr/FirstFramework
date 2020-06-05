@@ -97,6 +97,10 @@ public class ContactUsPage extends BasePage {
     //метод click send button
     public void clickOnSendButton () {element(sendButton).click();}
 
+    public void typeTextInMessageField() {
+    }
+
+
 }
 
 

@@ -67,10 +67,6 @@ public class MainSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOnAddToCartButtonOfAnItem() {onPage.clickOnAddToCartButtonOfAnItem();
-    }
-
-    @Step
     public void clickOnProceedToCheckOutButton() {onPage.clickOnProceedToCheckOutButton();
     }
 

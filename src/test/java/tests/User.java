@@ -1,14 +1,15 @@
 package tests;
 
 import net.thucydides.core.annotations.Steps;
-import pages.ContactUsPage;
+import net.thucydides.core.steps.ScenarioSteps;
 import steps.MainSteps;
+import steps.ContactUsSteps;
 
-public class User {
+public class User extends ScenarioSteps {
 
     @Steps
     public MainSteps mainPage;
 
     @Steps
-    public ContactUsPage contactUsPage;
+    public ContactUsSteps contactUsPage;
 }

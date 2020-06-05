@@ -1,11 +1,10 @@
 package steps;
 
-import Helper.PropertiesHelper;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.ContactUsPage;
 
-public class StepsContactUs extends ScenarioSteps {
+public class ContactUsSteps extends ScenarioSteps {
 
     public ContactUsPage onContactPage;
 
@@ -26,5 +25,14 @@ public class StepsContactUs extends ScenarioSteps {
     //public void clickOnAttachFileButton() {onContactPage.clickOnAttachFileButton();}
 
     @Step
-    public void typeTextInMessageField() {onContactPage.typeTextInMessageField(PropertiesHelper.INSTANCE.getProperties("text"));}
+    public void typeTextInMessageField(String text) {onContactPage.typeTextInMessageField(text);}
+
+    @Step
+    public void checkIconUnderWebmasterField() {onContactPage.checkIconUnderWebmasterField();}
+
+    @Step
+    public void clickOnSendButton() {onContactPage.clickOnSendButton();}
+
+    public void clickOnAttachFileButton() {
+    }
 }

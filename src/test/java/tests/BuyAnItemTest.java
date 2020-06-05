@@ -26,7 +26,7 @@ public class BuyAnItemTest extends SampleTest {
     14. Check the for "Cart (empty)" title on the cart */
 
     user.mainPage.openMainPage();
-    user.mainPage.clickOnAddToCartButtonOfAnItem();
+    user.mainPage.clickOnAddToCartButtonsOnItems(1);
     user.mainPage.clickOnProceedToCheckOutButton();
     user.mainPage.clickOnProceedToCheckOutButtonOnSummaryPage();
     user.mainPage.fillInEmailAddressField(PropertiesHelper.INSTANCE.getProperties("email"));
