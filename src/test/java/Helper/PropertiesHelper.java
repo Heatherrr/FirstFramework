@@ -8,9 +8,9 @@ public class PropertiesHelper {
 
     public final static PropertiesHelper INSTANCE = new PropertiesHelper();
 
-    private Properties properties;
+    public Properties properties;
 
-    private PropertiesHelper() {
+    public PropertiesHelper() {
         properties = new Properties();
 
         try {

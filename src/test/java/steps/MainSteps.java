@@ -8,7 +8,7 @@ import pages.MainPage;
 public class MainSteps extends ScenarioSteps {
 
     // Обьявляем MainPage:
-    private MainPage onPage;
+    public MainPage onPage;
 
     // Описываем методы для серенити
     // чтобы серенити мог добавить шаги в репорт при его генерации:
@@ -64,5 +64,33 @@ public class MainSteps extends ScenarioSteps {
 
     @Step
     public void clickOnCreateAnAccountButton() {onPage.clickOnCreateAnAccountButton();
+    }
+
+    @Step
+    public void clickOnProceedToCheckOutButton() {onPage.clickOnProceedToCheckOutButton();
+    }
+
+    @Step
+    public void clickOnProceedToCheckOutButtonOnSummaryPage() {onPage.clickOnProceedToCheckOutButtonOnSummaryPage();
+    }
+
+    @Step
+    public void clickOnProceedToCheckOutButtonOnAddressPage() {onPage.clickOnProceedToCheckOutButtonOnAddressPage();
+    }
+
+    @Step
+    public void tickTheCheckBoxIAgree() {onPage.tickTheCheckBoxIAgree();
+    }
+
+    @Step
+    public void clickOnProceedToCheckOutButtonOnShippingPage () {onPage.clickOnProceedToCheckOutButtonOnShippingPage();
+    }
+
+    @Step
+    public void clickOnPayByBankWire() {onPage.clickOnPayByBankWire();
+    }
+
+    @Step
+    public void clickOnIConfirmMyOrderButton() {onPage.clickOnIConfirmMyOrderButton();
     }
 }

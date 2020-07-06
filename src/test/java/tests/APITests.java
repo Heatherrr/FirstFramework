@@ -1,40 +1,40 @@
 package tests;
 
-import Helper.DataUser;
-import com.jayway.restassured.response.Response;
-import org.junit.Test;
-import org.testng.asserts.SoftAssert;
+import Helper.DataUser;                                                        //импорт класса DataUser
+import com.jayway.restassured.response.Response;                               //restassured - библиотека Java, работающая с http запросами, позволяет выполнить запрос к API и проверить полученный результат
+import org.junit.Test;                                                         //junit - библиотека для юнит-тестирования кода
+import org.testng.asserts.SoftAssert;                                          //testng - для возможности передавть параметры в тест (параметризировать удобнее, чем в junit)
 
-import static com.jayway.restassured.RestAssured.given;
+import static com.jayway.restassured.RestAssured.given;                        //с помощью гивена мы создаем спецификацию для реквеста, через given/then строится наш запрос
 
-public class APITests {
+public class APITests {                                                        //класс APITests
 
     //статическая переменная (default url)
-    static String DEFAULT_URL = "https://jsonplaceholder.typicode.com/posts";
-    static String CONTENT_TYPE = "Content-type";
-    static String HEADER_APP_JSON = "application/json; charset=utf-8";
-    Response response;
-    SoftAssert softAssert = new SoftAssert();
-    DataUser getUser1 = new DataUser("1", "foo", "poo");
+    static String DEFAULT_URL = "https://jsonplaceholder.typicode.com/posts";  //URL запрос
+    static String CONTENT_TYPE = "Content-type";                               //html, css, js, контент
+    static String HEADER_APP_JSON = "application/json; charset=utf-8";         //формат json, чтобы распознавал англ и рус
+    Response response;                                                         //объект респонса, а респонс - это целый объект, который включает методы запроса get, post, итд
+    SoftAssert softAssert = new SoftAssert();                                  //конструктор, чтобы потом использовать наши ассерты (проверки)
+    DataUser getUser1 = new DataUser("1", "foo", "poo");    // объект/экземпляр класса DataUser со значениями, ключ для аутентификации юзера
 
-    @Test
-    public void verifyHTTPSStatusCode200() {
-        given()
-                .when().get("https://jsonplaceholder.typicode.com/posts")
-                .then().assertThat().statusCode(200);
+    @Test                                                                     //аннотация Test
+    public void verifyHTTPSStatusCode200() {                                  //метод теста для проверки что сайт отвечает по данному URL        Ключевые слова given, when и then формируют запрос:
+        given()                                                               //given() - определяет что будет отправлено в запросе (авторизация и параметры запроса)
+                .when().get("https://jsonplaceholder.typicode.com/posts")  //when() - с каким методом и на какой эндпоинт (URL) отправляем запрос (описывает требуемое действие – запрос какого типа и на какой адрес следует отправить.)
+                .then().assertThat().statusCode(200);                         //then() - как проверяется пришедший ответ. Проверяем соответствует ли статус код ответа сервера ожидаемому (200). Включает проверки, которые необходимо произвести (их может быть несколько одновременно).
     }
 
-    @Test
-    public void verifyHTTPResponseHeader() {
-        given()
+    @Test                                                                     //
+    public void verifyHTTPResponseHeader() {                                  //проверяем тип возвращаемого хедера, что сайт возвращает определенный тип в котором он парсится, что он парсится в json, а второй проверко, что он доступен
+        given()                                                               //
             .when().get(DEFAULT_URL)
             .then().assertThat()
             .header(CONTENT_TYPE, HEADER_APP_JSON)
-            .and().statusCode(200);
+            .and().statusCode(200);                                           //
     }
 
-    @Test
-    public void verifyHTTPResponseBody() {
+    @Test                                                                     //обознач создаваемый метод как тест, чтобы потом можно было его запускать
+    public void verifyHTTPResponseBody() {                                    //метод   get запрос, а потом получаем бади юзеров в json -е,
         response = (Response) given()
                 .when().get (DEFAULT_URL);
         softAssert.assertEquals(response.body()
